@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001F3F"
+    tools:context=".vistas.gescursos"
+    tools:layout_editor_absoluteX="2dp"
+    tools:layout_editor_absoluteY="-51dp">
+
+    <Button
+        android:id="@+id/btn_regresar3"
+        android:layout_width="109dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="308dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Editar"
+        android:textColor="#001F3F"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_regresar4"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="308dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Eliminar"
+        android:textColor="#001F3F"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_regresar2"
+        android:layout_width="116dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="308dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:gravity="center"
+        android:text="Agregar"
+        android:textColor="#001F3F"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/sp_docente"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:background="@drawable/bordes_blancos"
+        tools:layout_editor_absoluteX="178dp"
+        tools:layout_editor_absoluteY="311dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Docente:"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="312dp" />
+
+    <Spinner
+        android:id="@+id/sp_turno"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/sp_docente"
+        tools:layout_editor_absoluteX="178dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Turno: "
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/sp_seccion"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/sp_turno"
+        tools:layout_editor_absoluteX="180dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="19dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Sección:"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Nivel:"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_nom_curso"
+        android:layout_width="205dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/bordes_blancos"
+        android:backgroundTint="#FDFDFD"
+        android:backgroundTintMode="multiply"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/spn_nivel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <EditText
+        android:id="@+id/editTextNumber12"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="108dp"
+        android:background="@drawable/bordes_blancos"
+        android:backgroundTint="#FBFBFB"
+        android:backgroundTintMode="multiply"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_docente" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Gestión de Cursos"
+        android:textColor="#FFC107"
+        android:textSize="38sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Nombre:"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <Button
+        android:id="@+id/btn_buscar"
+        android:layout_width="149dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Buscar"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumber12"
+        app:layout_constraintTop_toBottomOf="@+id/sp_docente" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="355dp"
+        android:layout_height="132dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="504dp" />
+
+    <Button
+        android:id="@+id/btn_regresar"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Regresar"
+        android:textColor="#001F3F"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spn_nivel"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/sp_seccion"
+        tools:layout_editor_absoluteX="180dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
