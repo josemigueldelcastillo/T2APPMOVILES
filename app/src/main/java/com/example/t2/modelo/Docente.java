@@ -7,6 +7,17 @@ public class Docente {
     private String apellido;
     private String nacionalidad;
 
+    public Docente(){
+
+    }
+
+    public Docente ( int idDocente, String dni, String nombre, String apellido, String nacionalidad){
+        this.idDocente = idDocente;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.nacionalidad = nacionalidad;
+    }
     public int getIdDocente() {
         return idDocente;
     }
