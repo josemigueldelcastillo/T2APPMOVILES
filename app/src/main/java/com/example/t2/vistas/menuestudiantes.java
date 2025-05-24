@@ -1,6 +1,9 @@
 package com.example.t2.vistas;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +15,8 @@ import com.example.t2.R;
 
 public class menuestudiantes extends AppCompatActivity {
 
+    Button btnVolver, btnRegAlum,btnHistoAca, btnConLibNotas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +27,25 @@ public class menuestudiantes extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        btnRegAlum = findViewById(R.id.btn_registro_alumnos);
+        btnVolver = findViewById(R.id.btn_volver_estudiante);
+
+        btnRegAlum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menuestudiantes.this, regestudiantes.class);
+                startActivity(intent);
+            }
+        });
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menuestudiantes.this, menu.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }

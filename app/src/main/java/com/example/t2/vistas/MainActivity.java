@@ -1,5 +1,6 @@
 package com.example.t2.vistas;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -8,9 +9,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.view.View;
+import android.widget.Button;
+
 import com.example.t2.R;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button btnIniciar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +28,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        btnIniciar = findViewById(R.id.btn_iniciar);
+
+        btnIniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, menu.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

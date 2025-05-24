@@ -21,9 +21,10 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_docentes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.648" />
 
     <Button
         android:id="@+id/btn_docentes"
@@ -31,7 +32,7 @@
         android:layout_height="67dp"
         android:layout_marginStart="160dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="84dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Gestión de docentes"
@@ -39,7 +40,7 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

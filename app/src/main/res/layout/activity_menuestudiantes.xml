@@ -8,6 +8,22 @@
     android:background="#001F3F"
     tools:context=".vistas.menuestudiantes">
 
+    <Button
+        android:id="@+id/btn_volver_estudiante"
+        android:layout_width="128dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Volver"
+        android:textColor="#001F3F"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -22,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btn_registro_alumnos"
         android:layout_width="359dp"
         android:layout_height="54dp"
         android:layout_marginTop="40dp"
@@ -37,11 +53,11 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btn_historialaca"
         android:layout_width="359dp"
         android:layout_height="54dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="161dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
@@ -49,15 +65,15 @@
         android:textColor="#001F3F"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_registro_alumnos" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_conlibrenota"
         android:layout_width="359dp"
         android:layout_height="54dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Consulta de Libreta de Notas"
@@ -65,7 +81,7 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_historialaca" />
 
     <ImageView
         android:id="@+id/imageView4"
