@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/descarga"
     android:backgroundTint="#001F3F"
-    tools:context=".MainActivity">
+    tools:context=".vistas.MainActivity">
 
     <Button
         android:id="@+id/btn_iniciar"
