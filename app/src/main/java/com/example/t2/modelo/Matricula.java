@@ -7,6 +7,18 @@ public class Matricula {
     private int anioLectivo;
     private String fechaMatricula;
 
+    public Matricula(){
+
+    }
+
+    public Matricula( int idMatricula, int idAlumno, int idSeccion, int anioLectivo, String fechaMatricula){
+        this.idMatricula = idMatricula;
+        this.idAlumno = idAlumno;
+        this.idSeccion = idSeccion;
+        this.anioLectivo = anioLectivo;
+        this.fechaMatricula = fechaMatricula;
+    }
+
     public int getIdMatricula() {
         return idMatricula;
     }

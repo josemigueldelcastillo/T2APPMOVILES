@@ -6,6 +6,17 @@ public class Conducta {
     private int bimestre;
     private double notaConducta;
 
+    public Conducta(){
+
+    }
+
+    public Conducta ( int idConducta, int idMatricula, int bimestre, double notaConducta){
+        this.idConducta = idConducta;
+        this.idMatricula = idMatricula;
+        this.bimestre = bimestre;
+        this.notaConducta = notaConducta;
+    }
+
     // Getters y Setters
 
     public int getIdConducta() {

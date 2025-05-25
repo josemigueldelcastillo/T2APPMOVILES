@@ -5,6 +5,16 @@ public class Curso {
     private String nombreCurso;
     private String nivel; // "Primaria" o "Secundaria"
 
+    public Curso(){
+
+    }
+
+    public Curso ( int idCurso, String nombreCurso, String nivel){
+        this.idCurso = idCurso;
+        this.nombreCurso = nombreCurso;
+        this.nivel = nivel;
+    }
+
     public int getIdCurso() {
         return idCurso;
     }

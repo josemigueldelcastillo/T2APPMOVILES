@@ -8,6 +8,19 @@ public class Evaluacion {
     private double nota;
     private String fechaEvaluacion;
 
+    public Evaluacion(){
+
+    }
+
+    public Evaluacion( int idEvaluacion, int idMatricula, int idCurso, int bimestre, int nota, String fechaEvaluacion){
+        this.idEvaluacion = idEvaluacion;
+        this.idMatricula = idMatricula;
+        this.idCurso = idCurso;
+        this.bimestre = bimestre;
+        this.nota = nota;
+        this.fechaEvaluacion = fechaEvaluacion;
+    }
+
     // Getters y Setters
 
     public int getIdEvaluacion() {

@@ -9,6 +9,20 @@ public class Alumno {
     private String nacionalidad;
     private String nivel; // "Primaria" o "Secundaria"
 
+    public Alumno(){
+
+    }
+
+    public Alumno ( int idAlumno, String dni, String nombre, String apellido, String nacionalidad, String fechaNacimiento, String nivel){
+        this.idAlumno = idAlumno;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.nacionalidad = nacionalidad;
+        this.fechaNacimiento = fechaNacimiento;
+        this.nivel = nivel;
+    }
+
     // Getters y Setters
 
     public String getDni() {

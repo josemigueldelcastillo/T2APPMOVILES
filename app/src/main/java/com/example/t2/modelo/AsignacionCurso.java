@@ -8,6 +8,19 @@ public class AsignacionCurso {
     private int idSeccion;
     private int anioLectivo;
 
+    public AsignacionCurso(){
+
+    }
+
+    public AsignacionCurso ( int idAsignacion, int idCurso, int idDocentePrincipal, int idDocenteAuxiliar, int idSeccion, int anioLectivo){
+        this.idAsignacion = idAsignacion;
+        this.idCurso = idCurso;
+        this.idDocentePrincipal = idDocentePrincipal;
+        this.idDocenteAuxiliar = idDocenteAuxiliar;
+        this.idSeccion = idSeccion;
+        this.anioLectivo = anioLectivo;
+    }
+
     // Getters y Setters
 
     public int getIdAsignacion() {

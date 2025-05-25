@@ -6,6 +6,17 @@ public class Asistencia {
     private String fecha;
     private String estado; // "Asistencia", "Falta", "Tardanza"
 
+    public Asistencia(){
+
+    }
+
+    public Asistencia ( int idAsistencia, int idMatricula, String fecha, String estado){
+        this.idAsistencia = idAsistencia;
+        this.idMatricula = idMatricula;
+        this.fecha = fecha;
+        this.estado = estado;
+    }
+
     // Getters y Setters
 
     public int getIdAsistencia() {
