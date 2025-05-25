@@ -64,7 +64,7 @@ public class AsignacionCursoController extends dJuniorsUPN {
         }
     }
 
-    public ArrayList<AsignacionCurso> MostrarAsignacionCurso(){
+        public ArrayList<AsignacionCurso> MostrarAsignacionCurso(){
         dJuniorsUPN x = new DocenteController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
@@ -111,4 +111,5 @@ public class AsignacionCursoController extends dJuniorsUPN {
         act.close();
         return datos;
     }
+
 }

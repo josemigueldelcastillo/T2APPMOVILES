@@ -18,7 +18,7 @@ public class dJuniorsUPN  extends SQLiteOpenHelper {
     public static final String tAsignacionCurso = "AsignacionCurso";
     public static final String tEvaluacion = "Evaluacion";
     public static final String tAsistencia = "Asistencia";
-    public static final String tConducta = "Conducta";
+
 
     public dJuniorsUPN(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -44,8 +44,7 @@ public class dJuniorsUPN  extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + tCurso + "(" +
                 "id_curso INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombre_curso TEXT NOT NULL," +
-                "nivel TEXT CHECK(nivel IN ('Primaria','Secundaria')))");
+                "nombre_curso TEXT NOT NULL)" );
 
         db.execSQL("CREATE TABLE " + tSeccion + "(" +
                 "id_seccion INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -89,13 +88,6 @@ public class dJuniorsUPN  extends SQLiteOpenHelper {
                 "fecha TEXT," +
                 "estado TEXT CHECK(estado IN ('Asistencia','Falta','Tardanza'))," +
                 "FOREIGN KEY(id_matricula) REFERENCES Matricula(id_matricula))");
-
-        db.execSQL("CREATE TABLE "+ tConducta + "(" +
-                "id_conducta INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "id_matricula INTEGER," +
-                "bimestre INTEGER," +
-                "nota_conducta REAL," +
-                "FOREIGN KEY(id_matricula) REFERENCES Matricula(id_matricula))");
     }
 
     @Override
@@ -110,5 +102,11 @@ public class dJuniorsUPN  extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Docente");
         db.execSQL("DROP TABLE IF EXISTS Alumno");
         onCreate(db);
+    }
+
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+        db.setForeignKeyConstraintsEnabled(true);
     }
 }

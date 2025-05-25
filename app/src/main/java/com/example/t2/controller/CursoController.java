@@ -24,9 +24,7 @@ public class CursoController extends dJuniorsUPN {
 
         if (database != null){
             database.execSQL("INSERT INTO " + tCurso + " VALUES( "+
-                    dato.getNombreCurso() + ", " +
-                    dato.getIdDocentePrincipal() + ","  +
-                    dato.getIdDocenteAuxiliar() + ")"
+                    dato.getNombreCurso() +  ")"
             );
             database.close();
         }
@@ -40,8 +38,7 @@ public class CursoController extends dJuniorsUPN {
             database.execSQL("UPDATE " + tCurso +
                     " SET id_curso = " + dato.getIdCurso() +
                     " nombre_curso = " + dato.getNombreCurso() +
-                    " id_docente_principal = " + dato.getIdDocentePrincipal() +
-                    " id_docente_auxiliar = " + dato.getIdDocenteAuxiliar() + ")"
+                     ")"
             );
             database.close();
         }
@@ -72,8 +69,7 @@ public class CursoController extends dJuniorsUPN {
             do{
                 datos.add(new Curso(Integer.parseInt(act.getString(0)),
                         act.getString(1),
-                        Integer.parseInt(act.getString(2)),
-                        Integer.parseInt(act.getString(3))
+                        act.getString(2)
                 ));
             }while(act.moveToNext());
         }
@@ -94,8 +90,7 @@ public class CursoController extends dJuniorsUPN {
             do{
                 datos.add(new Curso(Integer.parseInt(act.getString(0)),
                         act.getString(1),
-                        Integer.parseInt(act.getString(2)),
-                        Integer.parseInt(act.getString(3))
+                        act.getString(2)
                 ));
             }while(act.moveToNext());
         }

@@ -28,7 +28,7 @@ public class DocenteController extends dJuniorsUPN{
                     dato.getApellido() + ", " +
                     dato.getDni() + ", " +
                     dato.getNacionalidad() +
-                    dato.getTipo() + ")"
+                     ")"
             );
             database.close();
         }
@@ -45,7 +45,7 @@ public class DocenteController extends dJuniorsUPN{
                     " apellido = " + dato.getApellido() +
                     " dni = " + dato.getDni() +
                     " nacionalidad = " + dato.getNacionalidad() +
-                    " tipo = " + dato.getTipo() + ")"
+                    " tipo = " + ")"
             );
             database.close();
         }
@@ -78,8 +78,7 @@ public class DocenteController extends dJuniorsUPN{
                         act.getString(1),
                         act.getString(2),
                         act.getString(3),
-                        act.getString(4),
-                        act.getString(5)
+                        act.getString(4)
                         ));
             }while(act.moveToNext());
         }
@@ -102,8 +101,7 @@ public class DocenteController extends dJuniorsUPN{
                         act.getString(1),
                         act.getString(2),
                         act.getString(3),
-                        act.getString(4),
-                        act.getString(5)
+                        act.getString(4)
                 ));
             }while(act.moveToNext());
         }

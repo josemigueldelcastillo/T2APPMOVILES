@@ -112,4 +112,29 @@ public class AlumnoController extends dJuniorsUPN {
         act.close();
         return datos;
     }
+
+    public ArrayList<Alumno> BuscarNombreAlumno(Alumno dato){
+        dJuniorsUPN x = new DocenteController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        ArrayList<Alumno> datos = new ArrayList<>();
+        Cursor act = null;
+
+        act = database.rawQuery("SELECT * FROM " + tAlumno + " WHERE nombre LIKE %" + dato.getNombre() + "%", null);
+
+        if (act.moveToFirst()){
+            do{
+                datos.add(new Alumno (Integer.parseInt(act.getString(0)),
+                        act.getString(1),
+                        act.getString(2),
+                        act.getString(3),
+                        act.getString(4),
+                        act.getString(5),
+                        act.getString(6)
+                ));
+            }while(act.moveToNext());
+        }
+        act.close();
+        return datos;
+    }
 }

@@ -7,6 +7,15 @@ public class Seccion {
 
     // Getters y Setters
 
+    public Seccion() {
+    }
+
+    public Seccion(int idSeccion, char letra, String turno) {
+        this.idSeccion = idSeccion;
+        this.letra = letra;
+        this.turno = turno;
+    }
+
     public int getIdSeccion() {
         return idSeccion;
     }
