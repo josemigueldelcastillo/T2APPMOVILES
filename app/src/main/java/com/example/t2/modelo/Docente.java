@@ -6,17 +6,19 @@ public class Docente {
     private String nombre;
     private String apellido;
     private String nacionalidad;
+    private String tipo;
 
     public Docente(){
 
     }
 
-    public Docente ( int idDocente, String dni, String nombre, String apellido, String nacionalidad){
+    public Docente ( int idDocente, String dni, String nombre, String apellido, String nacionalidad, String tipo){
         this.idDocente = idDocente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.nacionalidad = nacionalidad;
+        this.tipo = tipo;
     }
     public int getIdDocente() {
         return idDocente;
@@ -56,5 +58,13 @@ public class Docente {
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

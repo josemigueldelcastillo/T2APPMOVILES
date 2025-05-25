@@ -3,17 +3,21 @@ package com.example.t2.modelo;
 public class Curso {
     private int idCurso;
     private String nombreCurso;
-    private String nivel; // "Primaria" o "Secundaria"
+    private int idDocentePrincipal;
+    private int idDocenteAuxiliar;
 
     public Curso(){
 
     }
 
-    public Curso ( int idCurso, String nombreCurso, String nivel){
+    public Curso ( int idCurso, String nombreCurso, int idDocentePrincipal, int idDocenteAuxiliar){
         this.idCurso = idCurso;
         this.nombreCurso = nombreCurso;
-        this.nivel = nivel;
+        this.idDocentePrincipal = idDocentePrincipal;
+        this.idDocenteAuxiliar = idDocenteAuxiliar;
     }
+
+
 
     public int getIdCurso() {
         return idCurso;
@@ -31,11 +35,21 @@ public class Curso {
         this.nombreCurso = nombreCurso;
     }
 
-    public String getNivel() {
-        return nivel;
+    public int getIdDocenteAuxiliar() {
+        return idDocenteAuxiliar;
     }
 
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
+    public void setIdDocenteAuxiliar(int idDocenteAuxiliar) {
+        this.idDocenteAuxiliar = idDocenteAuxiliar;
     }
+
+    public int getIdDocentePrincipal() {
+        return idDocentePrincipal;
+    }
+
+    public void setIdDocentePrincipal(int idDocentePrincipal) {
+        this.idDocentePrincipal = idDocentePrincipal;
+    }
+
+
 }

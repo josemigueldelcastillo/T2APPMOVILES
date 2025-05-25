@@ -28,7 +28,6 @@ public class AlumnoController extends dJuniorsUPN {
                     dato.getApellido() + ", " +
                     dato.getDni() + ", " +
                     dato.getNacionalidad() + ", " +
-                    dato.getFechaNacimiento() + ", " +
                     dato.getNivel() + ")"
             );
             database.close();
@@ -46,7 +45,6 @@ public class AlumnoController extends dJuniorsUPN {
                     " apellido = " + dato.getApellido() +
                     " dni = " + dato.getDni() +
                     " nacionalidad = " + dato.getNacionalidad() +
-                    " fecha_nacimiento = " + dato.getFechaNacimiento() +
                     " nivel = " + dato.getNivel() + ")"
             );
             database.close();

@@ -5,7 +5,6 @@ public class Alumno {
     private String dni;
     private String nombre;
     private String apellido;
-    private String fechaNacimiento; // Usa String o Date según necesites
     private String nacionalidad;
     private String nivel; // "Primaria" o "Secundaria"
 
@@ -19,7 +18,6 @@ public class Alumno {
         this.apellido = apellido;
         this.dni = dni;
         this.nacionalidad = nacionalidad;
-        this.fechaNacimiento = fechaNacimiento;
         this.nivel = nivel;
     }
 
@@ -55,14 +53,6 @@ public class Alumno {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNacionalidad() {
