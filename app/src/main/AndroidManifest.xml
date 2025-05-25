@@ -45,6 +45,9 @@
         <activity
             android:name=".vistas.menu"
             android:exported="false" />
+        <activity android:name=".vistas.hisacademico" />
+        <activity android:name=".vistas.libnotas" />
+
         <activity
             android:name=".vistas.MainActivity"
             android:exported="true">

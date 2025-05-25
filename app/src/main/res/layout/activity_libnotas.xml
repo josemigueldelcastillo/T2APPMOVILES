@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001F3F"
+    android:onClick="Salir"
+    tools:context=".vistas.libnotas">
+
+    <Button
+        android:id="@+id/btn_imprimir"
+        android:layout_width="134dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#FFC107"
+        android:text="Imprimir"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_estudiante4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_regestudiante"
+        app:layout_constraintVertical_bias="0.656" />
+
+    <Button
+        android:id="@+id/btn_exportar"
+        android:layout_width="135dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#FFC107"
+        android:text="Exportar Historial"
+        android:textColor="#001F3F"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_estudiante4"
+        app:layout_constraintEnd_toStartOf="@+id/btn_imprimir"
+        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_regestudiante"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Año Lectivo"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_año_lectivo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_regresar_estudiante4"
+        android:layout_width="122dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Regresar"
+        android:textColor="#001F3F"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_regestudiante"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_buscar_libreta"
+        android:layout_width="247dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Buscar Libreta"
+        android:textColor="#001F3F"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/lv_regestudiante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/adlam_display"
+        android:text="Libreta de Notas"
+        android:textColor="#FFC107"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView49"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Mes"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_mes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Promedio General:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_exportar"
+        app:layout_constraintEnd_toStartOf="@+id/txt_promedio_general"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_regestudiante"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="DNI del Alumno"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_buscar_estudiante4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/text_buscar_estudiante4"
+        android:layout_width="318dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bordes_blancos"
+        android:backgroundTint="#FAFAFA"
+        android:backgroundTintMode="multiply"
+        android:ems="10"
+        android:fontFamily="@font/adlam_display"
+        android:hint="Ej: 12345678"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView46"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_mes"
+        android:layout_width="318dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bordes_blancos"
+        android:backgroundTint="#FBFBFB"
+        android:backgroundTintMode="multiply"
+        android:ems="10"
+        android:hint="Ej: Diciembre"
+        android:inputType="text"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_buscar_libreta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_año_lectivo"
+        android:layout_width="318dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="13dp"
+        android:background="@drawable/bordes_blancos"
+        android:backgroundTint="#FBFAFA"
+        android:backgroundTintMode="multiply"
+        android:ems="10"
+        android:hint="Ej: 2025"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView48"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/lv_regestudiante"
+        android:layout_width="343dp"
+        android:layout_height="142dp"
+        android:layout_marginBottom="248dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_promedio_general"
+        android:layout_width="155dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:inputType="text"
+        android:textColor="#181818"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_imprimir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_regestudiante"
+        app:layout_constraintVertical_bias="0.057" />
+</androidx.constraintlayout.widget.ConstraintLayout>

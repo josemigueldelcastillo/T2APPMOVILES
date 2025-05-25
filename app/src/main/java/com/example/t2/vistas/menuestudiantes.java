@@ -29,6 +29,8 @@ public class menuestudiantes extends AppCompatActivity {
         });
         btnRegAlum = findViewById(R.id.btn_registro_alumnos);
         btnVolver = findViewById(R.id.btn_volver_estudiante);
+        btnConLibNotas = findViewById(R.id.btn_conlibrenota);
+        btnHistoAca = findViewById(R.id.btn_historialaca);
 
         btnRegAlum.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +39,9 @@ public class menuestudiantes extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,4 +53,14 @@ public class menuestudiantes extends AppCompatActivity {
 
 
     }
+    public void abrirHistorialAcademico(View view) {
+        Intent intent = new Intent(this, hisacademico.class);
+        startActivity(intent);
+    }
+
+    public void abrirLibroNotas(View view) {
+        Intent intent = new Intent(this, libnotas.class);
+        startActivity(intent);
+    }
+
 }
