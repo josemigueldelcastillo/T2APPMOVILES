@@ -9,18 +9,53 @@
     tools:context=".vistas.regevaluaciones">
 
     <Button
+        android:id="@+id/btn_limpiar_eva"
+        android:layout_width="55dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="41dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_delete"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_eva" />
+
+    <Button
+        android:id="@+id/btn_buscar_eva"
+        android:layout_width="57dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="13dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_search_category_default"
+        app:iconGravity="textEnd"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toStartOf="@+id/btn_limpiar_eva"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_eva" />
+
+    <Button
         android:id="@+id/btn_eliminar_eva"
         android:layout_width="122dp"
         android:layout_height="49dp"
-        android:layout_marginTop="27dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#FFC107"
+        android:clickable="false"
         android:fontFamily="@font/adlam_display"
         android:text="Eliminar"
         android:textColor="#001F3F"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_evaluacion" />
+        app:layout_constraintTop_toTopOf="@+id/btn_editar_eva" />
 
     <Button
         android:id="@+id/btn_editar_eva"
@@ -29,19 +64,20 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="144dp"
         android:backgroundTint="#FFC107"
+        android:clickable="false"
         android:fontFamily="@font/adlam_display"
         android:text="Editar"
         android:textColor="#001F3F"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_evaluacion" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_fecha_eva" />
 
     <EditText
         android:id="@+id/txt_nota_evaluacion"
         android:layout_width="205dp"
         android:layout_height="34dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/bordes_blancos"
         android:backgroundTint="#FFFFFF"
         android:backgroundTintMode="multiply"
@@ -49,139 +85,97 @@
         android:inputType="number"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_fecha_evaluacion" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_bimestre_eva" />
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/adlam_display"
         android:text="Nota:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="228dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/adlam_display"
         android:text="Fecha:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txt_fecha_evaluacion"
-        android:layout_width="205dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="31dp"
-        android:background="@drawable/bordes_blancos"
-        android:backgroundTint="#FFFFFF"
-        android:backgroundTintMode="multiply"
-        android:ems="10"
-        android:inputType="number"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_bimestre" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/adlam_display"
-        android:text="Fecha:"
-        android:textColor="#FFC107"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
     <Spinner
-        android:id="@+id/sp_bimestre"
+        android:id="@+id/sp_bimestre_eva"
         android:layout_width="205dp"
         android:layout_height="34dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/bordes_blancos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_alumno_evaluacion" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_curso_eva" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/adlam_display"
         android:text="Bimestre:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <Spinner
-        android:id="@+id/sp_alumno_evaluacion"
+        android:id="@+id/sp_curso_eva"
         android:layout_width="205dp"
         android:layout_height="34dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/bordes_blancos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_curso_evaluacion" />
+        app:layout_constraintTop_toBottomOf="@+id/sp_matri_eva" />
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/adlam_display"
-        android:text="Alumno:"
+        android:text="Curso:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <Spinner
-        android:id="@+id/sp_curso_evaluacion"
+        android:id="@+id/sp_matri_eva"
         android:layout_width="205dp"
         android:layout_height="34dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="28dp"
         android:background="@drawable/bordes_blancos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
-    <Button
-        android:id="@+id/btn_buscar_evaluacion"
-        android:layout_width="157dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="22dp"
-        android:backgroundTint="#FFC107"
-        android:fontFamily="@font/adlam_display"
-        android:text="Buscar"
-        android:textColor="#001F3F"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nota_evaluacion" />
-
     <EditText
-        android:id="@+id/txt_buscar_evaluacion"
+        android:id="@+id/txt_buscar_eva"
         android:layout_width="200dp"
         android:layout_height="41dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="19dp"
         android:background="@drawable/bordes_blancos"
         android:backgroundTint="#FDFDFD"
         android:backgroundTintMode="multiply"
@@ -191,20 +185,21 @@
         android:inputType="number"
         android:padding="10dp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_buscar_evaluacion"
+        app:layout_constraintEnd_toStartOf="@+id/btn_buscar_eva"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nota_evaluacion" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_eva" />
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/adlam_display"
-        android:text="Curso"
+        android:text="Matricula:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
@@ -212,8 +207,9 @@
         android:id="@+id/btn_regresar_eva"
         android:layout_width="134dp"
         android:layout_height="53dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginEnd="141dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="137dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
@@ -222,8 +218,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_eva" />
 
     <TextView
         android:id="@+id/textView29"
@@ -238,28 +234,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/lv_regestudiante"
-        android:layout_width="356dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/bordes_blancos"
-        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_eva"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.411"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/btn_registrar_eva"
         android:layout_width="127dp"
         android:layout_height="47dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="31dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Registrar"
         android:textColor="#001F3F"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_buscar_evaluacion" />
+        app:layout_constraintTop_toTopOf="@+id/btn_editar_eva" />
+
+    <EditText
+        android:id="@+id/txt_fecha_eva"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nota_evaluacion" />
+
+    <ListView
+        android:id="@+id/lv_eva"
+        android:layout_width="351dp"
+        android:layout_height="306dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_eva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_eva" />
 </androidx.constraintlayout.widget.ConstraintLayout>

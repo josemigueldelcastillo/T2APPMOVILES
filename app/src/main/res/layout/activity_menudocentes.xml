@@ -42,89 +42,88 @@
         android:id="@+id/btn_registro_docente"
         android:layout_width="359dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Registro de Docentes"
         android:textColor="#001F3F"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_matri_alumnos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/btn_control_asistencia"
         android:layout_width="359dp"
         android:layout_height="54dp"
         android:layout_marginStart="160dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="15dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Control de Asistencias"
         android:textColor="#001F3F"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_volver_docente"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_regis_eva" />
 
     <Button
         android:id="@+id/btn_gestion_cursos"
         android:layout_width="359dp"
         android:layout_height="54dp"
         android:layout_marginStart="160dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="15dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Gestión de Cursos"
         android:textColor="#001F3F"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_regis_eva"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_matri_alumnos" />
 
     <Button
         android:id="@+id/btn_matri_alumnos"
         android:layout_width="359dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Matrícula de Alumnos"
         android:textColor="#001F3F"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_gestion_cursos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registro_docente" />
 
     <Button
         android:id="@+id/btn_regis_eva"
         android:layout_width="359dp"
         android:layout_height="54dp"
         android:layout_marginStart="160dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="15dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Registro de Evaluaciones"
         android:textColor="#001F3F"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_control_asistencia"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_gestion_cursos" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="277dp"
         android:layout_height="246dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_registro_docente"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/_769719a5cb3bb49d41a6225d15b4084" />
 </androidx.constraintlayout.widget.ConstraintLayout>

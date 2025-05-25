@@ -13,8 +13,8 @@
         android:layout_width="128dp"
         android:layout_height="53dp"
         android:layout_marginStart="160dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Volver"
@@ -22,6 +22,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -41,14 +42,13 @@
         android:id="@+id/btn_registro_alumnos"
         android:layout_width="359dp"
         android:layout_height="54dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="84dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Registro de Alumnos"
         android:textColor="#001F3F"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -87,8 +87,9 @@
         android:id="@+id/imageView4"
         android:layout_width="355dp"
         android:layout_height="229dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/why_you_should_choose_an_international_foundation_programme__ifp_" />

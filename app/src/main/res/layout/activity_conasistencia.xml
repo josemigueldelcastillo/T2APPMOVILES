@@ -8,12 +8,67 @@
     android:background="#001F3F"
     tools:context=".vistas.conasistencia">
 
+    <Button
+        android:id="@+id/btn_limpiar_asis"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="34dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_delete"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_asistencia" />
+
+    <Button
+        android:id="@+id/btn_buscar_asis"
+        android:layout_width="59dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_search_category_default"
+        app:iconGravity="textEnd"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toStartOf="@+id/btn_limpiar_asis"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_asistencia" />
+
     <EditText
-        android:id="@+id/txt_tardanza"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="24dp"
+        android:id="@+id/txt_buscar_asis"
+        android:layout_width="201dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/bordes_blancos"
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="multiply"
+        android:ems="10"
+        android:fontFamily="@font/adlam_display"
+        android:hint="Ingresar código"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_buscar_asis"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_asistencia" />
+
+    <EditText
+        android:id="@+id/txt_estado_asis"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bordes_blancos"
         android:backgroundTint="#FFFFFF"
         android:backgroundTintMode="multiply"
@@ -21,64 +76,41 @@
         android:inputType="number"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_fecha_asistencia" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_fecha_asis" />
 
     <Button
         android:id="@+id/btn_editar_asistencia"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="68dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Editar"
         android:textColor="#001F3F"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_tardanza" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_estado_asis" />
 
     <TextView
         android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/adlam_display"
-        android:text="Tardanza:"
+        android:text="Estado:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <Spinner
-        android:id="@+id/sp_estudiante_asistencia"
+        android:id="@+id/sp_matri_asistencia"
         android:layout_width="205dp"
         android:layout_height="34dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="19dp"
-        android:background="@drawable/bordes_blancos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_curso_asistencia" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="23dp"
-        android:fontFamily="@font/adlam_display"
-        android:text="Estudiante:"
-        android:textColor="#FFC107"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
-    <Spinner
-        android:id="@+id/sp_curso_asistencia"
-        android:layout_width="205dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="19dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/bordes_blancos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
@@ -104,51 +136,24 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="24dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Registrar"
         android:textColor="#001F3F"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_tardanza" />
-
-    <ListView
-        android:id="@+id/lv_regestudiante"
-        android:layout_width="344dp"
-        android:layout_height="258dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/bordes_blancos"
-        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_asistencia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/txt_fecha_asistencia"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/bordes_blancos"
-        android:backgroundTint="#FFFFFF"
-        android:backgroundTintMode="multiply"
-        android:ems="10"
-        android:inputType="number"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_estudiante_asistencia" />
+        app:layout_constraintTop_toTopOf="@+id/btn_editar_asistencia" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/adlam_display"
-        android:text="Curso:"
+        android:text="Matricula:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -156,21 +161,21 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="26dp"
         android:fontFamily="@font/adlam_display"
         android:text="Fecha:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
     <TextView
         android:id="@+id/textView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="400dp"
         android:fontFamily="@font/adlam_display"
         android:text="Lista de asistencia"
         android:textColor="#FFC107"
@@ -191,5 +196,31 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_fecha_asis"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_matri_asistencia" />
+
+    <ListView
+        android:id="@+id/lv_asistencia"
+        android:layout_width="325dp"
+        android:layout_height="336dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_asistencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001F3F"
+    tools:context=".vistas.asignarCurso"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-38dp">
+
+    <Button
+        android:id="@+id/btn_regresar_asigcurso"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Regresar"
+        android:textColor="#001F3F"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_asignarcurso" />
+
+    <Button
+        android:id="@+id/btn_limpiar_asigcurso"
+        android:layout_width="55dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_delete"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_asigcurso" />
+
+    <Button
+        android:id="@+id/btn_buscar_asigcurso"
+        android:layout_width="55dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_search_category_default"
+        app:iconGravity="textEnd"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toStartOf="@+id/btn_limpiar_asigcurso"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_asigcurso" />
+
+    <EditText
+        android:id="@+id/txt_buscar_asigcurso"
+        android:layout_width="201dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bordes_blancos"
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="multiply"
+        android:ems="10"
+        android:fontFamily="@font/adlam_display"
+        android:hint="Ingresar código"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_buscar_asigcurso"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_asigcurso" />
+
+    <Button
+        android:id="@+id/btn_editar_asigcurso"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="372dp"
+        android:backgroundTint="#FFC107"
+        android:clickable="false"
+        android:fontFamily="@font/adlam_display"
+        android:text="Editar"
+        android:textColor="#001F3F"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_eliminar_asigcurso"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#FFC107"
+        android:clickable="false"
+        android:fontFamily="@font/adlam_display"
+        android:text="Eliminar"
+        android:textColor="#001F3F"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_editar_asigcurso" />
+
+    <Button
+        android:id="@+id/btn_asignar_asigcurso"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:text="Asignar"
+        android:textColor="#001F3F"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_editar_asigcurso" />
+
+    <Spinner
+        android:id="@+id/sp_docprin_asigcurso"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_curso_asigcurso" />
+
+    <Spinner
+        android:id="@+id/sp_seccion_asigcurso"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_docsec_asigcurso" />
+
+    <Spinner
+        android:id="@+id/sp_curso_asigcurso"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <Spinner
+        android:id="@+id/sp_docsec_asigcurso"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_docprin_asigcurso" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Curso:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Sección:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Año Lectivo:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="112dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Docente Principal:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="120dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Docente Secundario:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Asignar Curso"
+        android:textColor="#FFC107"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_añolectivo_asigcurso"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_seccion_asigcurso" />
+
+    <ListView
+        android:id="@+id/lv_asignarcurso"
+        android:layout_width="325dp"
+        android:layout_height="303dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_asigcurso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_limpiar_asigcurso" />
+</androidx.constraintlayout.widget.ConstraintLayout>

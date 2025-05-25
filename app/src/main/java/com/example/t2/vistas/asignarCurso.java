@@ -13,36 +13,27 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.t2.R;
 
-public class gescursos extends AppCompatActivity {
+public class asignarCurso extends AppCompatActivity {
 
-    Button btnVolver, BtnAsigCursos;
+    Button btnVolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_gescursos);
+        setContentView(R.layout.activity_asignar_curso);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        btnVolver = findViewById(R.id.btn_regresar_cursos);
-        BtnAsigCursos = findViewById(R.id.btn_asignar_curso);
+        btnVolver = findViewById(R.id.btn_regresar_asigcurso);
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(gescursos.this, menudocentes.class);
-                startActivity(intent);
-            }
-        });
-
-        BtnAsigCursos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(gescursos.this, asignarCurso.class);
+                Intent intent = new Intent(asignarCurso.this, gescursos.class);
                 startActivity(intent);
             }
         });

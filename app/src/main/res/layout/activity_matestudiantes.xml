@@ -9,58 +9,102 @@
     tools:context=".vistas.matestudiantes">
 
     <Button
+        android:id="@+id/btn_limpiar_matri"
+        android:layout_width="55dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="43dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_delete"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_matricula" />
+
+    <Button
         android:id="@+id/btn_eliminar_matricula"
         android:layout_width="116dp"
         android:layout_height="49dp"
-        android:layout_marginTop="27dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="#FFC107"
+        android:clickable="false"
         android:fontFamily="@font/adlam_display"
         android:text="Eliminar"
         android:textColor="#001F3F"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spn_curso_matricula" />
+        app:layout_constraintTop_toTopOf="@+id/btn_editar_matricula" />
 
     <Button
         android:id="@+id/btn_editar_matricula"
         android:layout_width="111dp"
         android:layout_height="47dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#FFC107"
+        android:clickable="false"
         android:fontFamily="@font/adlam_display"
         android:text="Editar"
         android:textColor="#001F3F"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/btn_eliminar_matricula"
-        app:layout_constraintTop_toBottomOf="@+id/spn_curso_matricula" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
     <Spinner
-        android:id="@+id/spn_curso_matricula"
+        android:id="@+id/spn_sección_matricula"
         android:layout_width="205dp"
         android:layout_height="34dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bordes_blancos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spn_estudiante_matricula" />
+        app:layout_constraintTop_toBottomOf="@+id/spn_alumno_matricula" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="33dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/adlam_display"
-        android:text="Curso:"
+        android:text="Sección:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Año Lectivo:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Fecha:"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
     <Spinner
-        android:id="@+id/spn_estudiante_matricula"
+        android:id="@+id/spn_alumno_matricula"
         android:layout_width="205dp"
         android:layout_height="34dp"
         android:layout_marginTop="31dp"
@@ -74,6 +118,7 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="144dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="147dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="#FFC107"
@@ -83,27 +128,29 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_matestudiante" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="112dp"
         android:fontFamily="@font/adlam_display"
-        android:text="Estudiante:"
+        android:text="Alumno:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txt_buscar_matri"
         android:layout_width="197dp"
-        android:layout_height="39dp"
+        android:layout_height="44dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="288dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
         android:background="@drawable/bordes_blancos"
         android:backgroundTint="#FBFAFA"
         android:backgroundTintMode="multiply"
@@ -113,29 +160,33 @@
         android:inputType="number"
         android:paddingStart="10dp"
         android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_buscar_matri"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_matricula" />
 
     <Button
         android:id="@+id/btn_buscar_matri"
-        android:layout_width="148dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="288dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="59dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="13dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
-        android:text="Buscar"
+        android:paddingLeft="15dp"
         android:textColor="#001F3F"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:icon="@android:drawable/ic_search_category_default"
+        app:iconGravity="textEnd"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toStartOf="@+id/btn_limpiar_matri"
+        app:layout_constraintTop_toBottomOf="@+id/btn_editar_matricula" />
 
     <Button
         android:id="@+id/btn_matricular"
         android:layout_width="129dp"
         android:layout_height="47dp"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="27dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Matricular"
@@ -144,7 +195,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_editar_matricula"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/btn_editar_matricula" />
 
     <TextView
         android:id="@+id/textView14"
@@ -160,12 +211,42 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/lv_regestudiante"
-        android:layout_width="347dp"
-        android:layout_height="284dp"
-        android:layout_marginTop="348dp"
+        android:id="@+id/lv_matestudiante"
+        android:layout_width="358dp"
+        android:layout_height="329dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_matricula"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_matri" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="17dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spn_sección_matricula" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="205dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

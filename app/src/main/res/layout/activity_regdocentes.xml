@@ -8,26 +8,104 @@
     android:background="#001F3F"
     tools:context=".vistas.regdocentes">
 
-    <Spinner
-        android:id="@+id/spn_tipo_docente"
-        android:layout_width="205dp"
+    <Button
+        android:id="@+id/btn_limpiar_docente"
+        android:layout_width="55dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="51dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_delete"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrar_docente" />
+
+    <Button
+        android:id="@+id/btn_buscar_docente"
+        android:layout_width="59dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="#FFC107"
+        android:fontFamily="@font/adlam_display"
+        android:paddingLeft="15dp"
+        android:textColor="#001F3F"
+        android:textSize="16sp"
+        app:icon="@android:drawable/ic_search_category_default"
+        app:iconGravity="textEnd"
+        app:iconSize="25dp"
+        app:iconTint="#001F3F"
+        app:layout_constraintEnd_toStartOf="@+id/btn_limpiar_docente"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrar_docente" />
+
+    <EditText
+        android:id="@+id/txt_dni_ce_docente"
+        android:layout_width="207dp"
         android:layout_height="34dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:fontFamily="@font/adlam_display"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_apellido_docente" />
+
+    <EditText
+        android:id="@+id/txt_nacionalidad_docente"
+        android:layout_width="207dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bordes_blancos"
+        android:editable="false"
+        android:ems="10"
+        android:fontFamily="@font/adlam_display"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_dni_ce_docente" />
+
+    <EditText
+        android:id="@+id/txt_apellido_docente"
+        android:layout_width="207dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:fontFamily="@font/adlam_display"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombres_docente" />
+
+    <EditText
+        android:id="@+id/txt_nombres_docente"
+        android:layout_width="207dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bordes_blancos"
+        android:ems="10"
+        android:fontFamily="@font/adlam_display"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/adlam_display"
-        android:text="Tipo:"
+        android:text="Nacionalidad:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -35,6 +113,7 @@
         android:id="@+id/btn_regresar_docentes"
         android:layout_width="120dp"
         android:layout_height="50dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
@@ -44,68 +123,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ListView
-        android:id="@+id/lv_regestudiante"
-        android:layout_width="341dp"
-        android:layout_height="195dp"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/bordes_blancos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_buscar_docente"
-        android:layout_width="149dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="28dp"
-        android:backgroundTint="#FFC107"
-        android:fontFamily="@font/adlam_display"
-        android:text="Buscar"
-        android:textColor="#001F3F"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_registrar_docente" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_docentes" />
 
     <EditText
-        android:id="@+id/txt_nombre_docente"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bordes_blancos"
-        android:backgroundTint="#FFFFFF"
-        android:backgroundTintMode="multiply"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-    <EditText
-        android:id="@+id/txt_dni_ce_docente"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bordes_blancos"
-        android:backgroundTint="#FBFBFB"
-        android:backgroundTintMode="multiply"
-        android:ems="10"
-        android:inputType="number"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_apellido_docente" />
-
-    <EditText
-        android:id="@+id/txt_buscar_estudiante"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
+        android:id="@+id/txt_buscar_docente"
+        android:layout_width="201dp"
+        android:layout_height="37dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="13dp"
         android:background="@drawable/bordes_blancos"
         android:backgroundTint="#FFFFFF"
         android:backgroundTintMode="multiply"
@@ -115,23 +142,9 @@
         android:inputType="number"
         android:paddingStart="10dp"
         android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_buscar_docente"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txt_apellido_docente"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/bordes_blancos"
-        android:backgroundTint="#FBFBFB"
-        android:backgroundTintMode="multiply"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_nombre_docente" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrar_docente" />
 
     <TextView
         android:id="@+id/textView25"
@@ -142,7 +155,7 @@
         android:fontFamily="@font/adlam_display"
         android:text="Apellidos:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -155,7 +168,7 @@
         android:fontFamily="@font/adlam_display"
         android:text="DNI/CE:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
@@ -177,21 +190,21 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="19dp"
-        android:layout_marginTop="30dp"
         android:backgroundTint="#FFC107"
         android:fontFamily="@font/adlam_display"
         android:text="Agregar"
         android:textColor="#001F3F"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toTopOf="@+id/btn_registrar_docente" />
 
     <Button
         android:id="@+id/btn_registrar_docente"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="22dp"
         android:backgroundTint="#FFC107"
+        android:clickable="false"
         android:fontFamily="@font/adlam_display"
         android:text="Editar"
         android:textColor="#001F3F"
@@ -199,33 +212,48 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spn_tipo_docente" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_nacionalidad_docente" />
 
     <Button
         android:id="@+id/btn_eliminar_docente"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="19dp"
         android:backgroundTint="#FFC107"
+        android:clickable="false"
         android:fontFamily="@font/adlam_display"
         android:text="Eliminar"
         android:textColor="#001F3F"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spn_tipo_docente" />
+        app:layout_constraintTop_toTopOf="@+id/btn_registrar_docente" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="34dp"
         android:fontFamily="@font/adlam_display"
         android:text="Nombres:"
         android:textColor="#FFC107"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <ListView
+        android:id="@+id/lv_docentes"
+        android:layout_width="342dp"
+        android:layout_height="358dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bordes_blancos"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_docentes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_docente" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
