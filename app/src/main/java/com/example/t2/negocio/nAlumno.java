@@ -29,7 +29,7 @@ public class nAlumno {
         return lista = A.MostrarAlumno();
     }
 
-    public ArrayList<Alumno> BuscarDNI(Alumno dato){
-        return  busqueda = A.BuscarAlumno(dato);
+    public ArrayList<Alumno> BuscarDNI(String cod){
+        return  busqueda = A.BuscarAlumno(cod);
     }
 }
