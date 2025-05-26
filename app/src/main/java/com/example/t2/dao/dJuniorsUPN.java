@@ -31,7 +31,6 @@ public class dJuniorsUPN  extends SQLiteOpenHelper {
                 "dni TEXT UNIQUE NOT NULL," +
                 "nombre TEXT," +
                 "apellido TEXT," +
-                "fecha_nacimiento TEXT," +
                 "nacionalidad TEXT," +
                 "nivel TEXT CHECK(nivel IN ('Primaria','Secundaria')))");
 

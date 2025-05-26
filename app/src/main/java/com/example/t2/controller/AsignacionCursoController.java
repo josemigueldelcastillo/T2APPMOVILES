@@ -58,7 +58,7 @@ public class AsignacionCursoController extends dJuniorsUPN {
         SQLiteDatabase database = x.getWritableDatabase();
 
         if(database != null){
-            database.execSQL("DELETE FROM " + tDocente +
+            database.execSQL("DELETE FROM " + tAsignacionCurso +
                     "WHERE id_asignacion = " + dato.getIdAsignacion()
             );
             database.close();

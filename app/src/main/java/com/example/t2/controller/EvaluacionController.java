@@ -54,11 +54,11 @@ public class EvaluacionController extends dJuniorsUPN {
     }
 
     public void EliminarEvaluacion(Evaluacion dato){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new EvaluacionController(context);
         SQLiteDatabase database = x.getWritableDatabase();
 
         if(database != null){
-            database.execSQL("DELETE FROM " + tDocente +
+            database.execSQL("DELETE FROM " + tEvaluacion +
                     "WHERE id_evaluacion = " + dato.getIdEvaluacion()
             );
             database.close();
@@ -66,7 +66,7 @@ public class EvaluacionController extends dJuniorsUPN {
     }
 
     public ArrayList<Evaluacion> MostrarEvaluacion(){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new EvaluacionController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<Evaluacion> datos = new ArrayList<>();
@@ -90,13 +90,13 @@ public class EvaluacionController extends dJuniorsUPN {
     }
 
     public ArrayList<Evaluacion> BuscarEvaluacion(Evaluacion dato){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new EvaluacionController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<Evaluacion> datos = new ArrayList<>();
         Cursor act = null;
 
-        act = database.rawQuery("SELECT * FROM " + tEvaluacion + "WHERE id_docente = " + dato.getIdEvaluacion(), null);
+        act = database.rawQuery("SELECT * FROM " + tEvaluacion + "WHERE id_evaluacion = " + dato.getIdEvaluacion(), null);
 
         if (act.moveToFirst()){
             do{

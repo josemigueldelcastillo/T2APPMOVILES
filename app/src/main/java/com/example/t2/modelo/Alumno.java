@@ -1,6 +1,6 @@
 package com.example.t2.modelo;
 
-public class Alumno {
+public class    Alumno {
     private int idAlumno;
     private String dni;
     private String nombre;
@@ -11,7 +11,13 @@ public class Alumno {
     public Alumno(){
 
     }
-
+    public Alumno ( String dni, String nombre, String apellido, String nacionalidad,  String nivel){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.nacionalidad = nacionalidad;
+        this.nivel = nivel;
+    }
     public Alumno ( int idAlumno, String dni, String nombre, String apellido, String nacionalidad,  String nivel){
         this.idAlumno = idAlumno;
         this.nombre = nombre;
@@ -70,4 +76,10 @@ public class Alumno {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido + "\nDNI: " + dni + "\nNacionalidad: " + nacionalidad + "\nNivel: " + nivel;
+    }
 }
+
