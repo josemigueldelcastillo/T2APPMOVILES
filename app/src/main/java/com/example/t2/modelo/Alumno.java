@@ -12,7 +12,7 @@ public class Alumno {
 
     }
 
-    public Alumno ( int idAlumno, String dni, String nombre, String apellido, String nacionalidad, String fechaNacimiento, String nivel){
+    public Alumno ( int idAlumno, String dni, String nombre, String apellido, String nacionalidad,  String nivel){
         this.idAlumno = idAlumno;
         this.nombre = nombre;
         this.apellido = apellido;

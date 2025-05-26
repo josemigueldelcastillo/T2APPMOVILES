@@ -33,8 +33,7 @@ public class regestudiantes extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(regestudiantes.this, menuestudiantes.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

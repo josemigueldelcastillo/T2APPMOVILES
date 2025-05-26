@@ -79,8 +79,7 @@ public class AlumnoController extends dJuniorsUPN {
                         act.getString(2),
                         act.getString(3),
                         act.getString(4),
-                        act.getString(5),
-                        act.getString(6)
+                        act.getString(5)
                 ));
             }while(act.moveToNext());
         }
@@ -89,7 +88,7 @@ public class AlumnoController extends dJuniorsUPN {
     }
 
     public ArrayList<Alumno> BuscarAlumno(Alumno dato){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new AlumnoController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<Alumno> datos = new ArrayList<>();
@@ -104,8 +103,7 @@ public class AlumnoController extends dJuniorsUPN {
                         act.getString(2),
                         act.getString(3),
                         act.getString(4),
-                        act.getString(5),
-                        act.getString(6)
+                        act.getString(5)
                 ));
             }while(act.moveToNext());
         }
@@ -129,8 +127,7 @@ public class AlumnoController extends dJuniorsUPN {
                         act.getString(2),
                         act.getString(3),
                         act.getString(4),
-                        act.getString(5),
-                        act.getString(6)
+                        act.getString(5)
                 ));
             }while(act.moveToNext());
         }

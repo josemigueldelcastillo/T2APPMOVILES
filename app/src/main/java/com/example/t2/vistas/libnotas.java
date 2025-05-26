@@ -2,6 +2,7 @@ package com.example.t2.vistas;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.example.t2.R;
 
 public class libnotas extends AppCompatActivity {
 
+    Button btnRegrsarLN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +25,14 @@ public class libnotas extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        btnRegrsarLN = findViewById(R.id.btn_regresar_libnotas);
+
+        btnRegrsarLN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
-    public void Salir(View view) {
-        finish();
-    }
+
 }

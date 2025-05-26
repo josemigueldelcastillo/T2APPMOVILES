@@ -33,8 +33,7 @@ public class regevaluaciones extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(regevaluaciones.this, menudocentes.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

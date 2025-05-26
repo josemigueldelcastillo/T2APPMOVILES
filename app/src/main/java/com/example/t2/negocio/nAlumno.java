@@ -18,6 +18,7 @@ public class nAlumno {
         return true;
     }
     public void Actualizar(Alumno dato){
+
         A.ModificarAlumno(dato);
     }
     public void Eliminar(Alumno dato){

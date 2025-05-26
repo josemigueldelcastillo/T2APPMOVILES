@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.example.t2.dao.dJuniorsUPN;
 import com.example.t2.modelo.AsignacionCurso;
+import com.example.t2.modelo.Docente;
 
 import java.util.ArrayList;
 
@@ -53,7 +54,7 @@ public class AsignacionCursoController extends dJuniorsUPN {
     }
 
     public void EliminarAsignacionCurso(AsignacionCurso dato){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new AsignacionCursoController(context);
         SQLiteDatabase database = x.getWritableDatabase();
 
         if(database != null){
@@ -65,7 +66,7 @@ public class AsignacionCursoController extends dJuniorsUPN {
     }
 
         public ArrayList<AsignacionCurso> MostrarAsignacionCurso(){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new AsignacionCursoController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<AsignacionCurso> datos = new ArrayList<>();
@@ -89,13 +90,37 @@ public class AsignacionCursoController extends dJuniorsUPN {
     }
 
     public ArrayList<AsignacionCurso> BuscarAsignacionCurso(AsignacionCurso dato){
-        dJuniorsUPN x = new DocenteController(context);
+            dJuniorsUPN x = new AsignacionCursoController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<AsignacionCurso> datos = new ArrayList<>();
         Cursor act = null;
 
-        act = database.rawQuery("SELECT * FROM " + tAsignacionCurso + "WHERE id_docente = " + dato.getIdAsignacion(), null);
+        act = database.rawQuery("SELECT * FROM " + tAsignacionCurso + "WHERE id_asignacion = " + dato.getIdAsignacion(), null);
+
+        if (act.moveToFirst()){
+            do{
+                datos.add(new AsignacionCurso (Integer.parseInt(act.getString(0)),
+                        Integer.parseInt(act.getString(1)),
+                        Integer.parseInt(act.getString(2)),
+                        Integer.parseInt(act.getString(3)),
+                        Integer.parseInt(act.getString(4)),
+                        Integer.parseInt(act.getString(5))
+                ));
+            }while(act.moveToNext());
+        }
+        act.close();
+        return datos;
+    }
+
+    public ArrayList<AsignacionCurso> ListarAsignacionesPorDocente(Docente dato) {
+        dJuniorsUPN x = new AsignacionCursoController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        ArrayList<AsignacionCurso> datos = new ArrayList<>();
+        Cursor act = null;
+
+        act = database.rawQuery("SELECT * FROM " + tAsignacionCurso + "WHERE id_docente = " + dato.getIdDocente(), null);
 
         if (act.moveToFirst()){
             do{

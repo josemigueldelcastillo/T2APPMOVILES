@@ -2,6 +2,7 @@ package com.example.t2.vistas;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.t2.R;
 
 public class hisacademico extends AppCompatActivity {
+    Button btnRegresarHA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +25,12 @@ public class hisacademico extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-    }
-    public void volverAtrass(View view) {
-        finish(); // Cierra esta actividad y regresa a la anterior
+
+        btnRegresarHA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

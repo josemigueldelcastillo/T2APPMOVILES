@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#001F3F"
-    android:onClick="Salir"
     tools:context=".vistas.libnotas">
 
     <Button
@@ -19,7 +18,7 @@
         android:text="Imprimir"
         android:textColor="#070707"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_estudiante4"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_libnotas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv_regestudiante"
         app:layout_constraintVertical_bias="0.656" />
@@ -33,7 +32,7 @@
         android:text="Exportar Historial"
         android:textColor="#001F3F"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_estudiante4"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regresar_libnotas"
         app:layout_constraintEnd_toStartOf="@+id/btn_imprimir"
         app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_regresar_estudiante4"
+        android:id="@+id/btn_regresar_libnotas"
         android:layout_width="122dp"
         android:layout_height="56dp"
         android:layout_marginBottom="20dp"

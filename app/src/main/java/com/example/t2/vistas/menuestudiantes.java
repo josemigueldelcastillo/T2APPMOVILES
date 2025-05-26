@@ -46,8 +46,7 @@ public class menuestudiantes extends AppCompatActivity {
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(menuestudiantes.this, menu.class);
-                startActivity(intent);
+                finish();
             }
         });
 

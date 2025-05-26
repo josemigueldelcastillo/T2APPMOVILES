@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.Nullable;
 
 import com.example.t2.dao.dJuniorsUPN;
+import com.example.t2.modelo.Alumno;
 import com.example.t2.modelo.Matricula;
 import com.example.t2.modelo.Seccion;
 
@@ -52,6 +53,37 @@ public class SeccionController extends dJuniorsUPN {
             }while(act.moveToNext());
         }
         act.close();
+        return datos;
+    }
+
+    public ArrayList<Alumno> ListarAlumnosPorSeccion(Seccion dato) {
+        dJuniorsUPN x = new AlumnoController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        ArrayList<Alumno> datos = new ArrayList<>();
+        Cursor act = null;
+
+        act = database.rawQuery("SELECT a.id_alumno, a.nombre, a.apellido, a.dni, a.nacionalidad, a.nivel " +
+                "FROM " + tAlumno + " a " +
+                "JOIN " + tMatricula + " m ON a.id_alumno = m.id_alumno " +
+                "WHERE m.id_seccion = " + dato.getIdSeccion(), null);
+
+        if (act.moveToFirst()) {
+            do {
+                datos.add(new Alumno(
+                        Integer.parseInt(act.getString(0)),  // id_alumno
+                        act.getString(1),                   // nombre
+                        act.getString(2),                   // apellido
+                        act.getString(3),                   // dni
+                        act.getString(4),                   // nacionalidad
+                        act.getString(5)                    // nivel
+                ));
+            } while (act.moveToNext());
+        }
+
+        act.close();
+        database.close();
+
         return datos;
     }
 

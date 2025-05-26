@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.Nullable;
 
 import com.example.t2.dao.dJuniorsUPN;
+import com.example.t2.modelo.Alumno;
 import com.example.t2.modelo.Evaluacion;
 
 import java.util.ArrayList;
@@ -79,7 +80,7 @@ public class EvaluacionController extends dJuniorsUPN {
                         Integer.parseInt(act.getString(1)),
                         Integer.parseInt(act.getString(2)),
                         Integer.parseInt(act.getString(3)),
-                        Integer.parseInt(act.getString(4)),
+                        Double.parseDouble(act.getString(4)),
                         act.getString(5)
                 ));
             }while(act.moveToNext());
@@ -103,12 +104,43 @@ public class EvaluacionController extends dJuniorsUPN {
                         Integer.parseInt(act.getString(1)),
                         Integer.parseInt(act.getString(2)),
                         Integer.parseInt(act.getString(3)),
-                        Integer.parseInt(act.getString(4)),
+                        Double.parseDouble(act.getString(4)),
                         act.getString(5)
                 ));
             }while(act.moveToNext());
         }
         act.close();
+        return datos;
+    }
+
+    public ArrayList<Evaluacion> ListarNotasPorAlumno(Alumno dato) {
+        dJuniorsUPN x = new EvaluacionController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        ArrayList<Evaluacion> datos = new ArrayList<>();
+        Cursor act = null;
+
+        act = database.rawQuery("SELECT e.id_evaluacion, e.id_matricula, e.tipo, e.nota " +
+                "FROM " + tEvaluacion + " e " +
+                "JOIN " + tMatricula + " m ON e.id_matricula = m.id_matricula " +
+                "WHERE m.id_alumno = " + dato.getIdAlumno(), null);
+
+        if (act.moveToFirst()) {
+            do {
+                datos.add(new Evaluacion(
+                        Integer.parseInt(act.getString(0)), // id_evaluacion
+                        Integer.parseInt(act.getString(1)),
+                        Integer.parseInt(act.getString(2)),
+                        Integer.parseInt(act.getString(3)),// id_matricula
+                        Double.parseDouble(act.getString(4)),                   // tipo
+                       act.getString(5)  // Fecha
+                ));
+            } while (act.moveToNext());
+        }
+
+        act.close();
+        database.close();
+
         return datos;
     }
 }

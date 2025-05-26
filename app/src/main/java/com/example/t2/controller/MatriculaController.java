@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.Nullable;
 
 import com.example.t2.dao.dJuniorsUPN;
+import com.example.t2.modelo.Alumno;
 import com.example.t2.modelo.Matricula;
+import com.example.t2.modelo.Seccion;
 
 import java.util.ArrayList;
 
@@ -51,11 +53,11 @@ public class MatriculaController extends dJuniorsUPN {
     }
 
     public void EliminarMatricula(Matricula dato){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new MatriculaController(context);
         SQLiteDatabase database = x.getWritableDatabase();
 
         if(database != null){
-            database.execSQL("DELETE FROM " + tDocente +
+            database.execSQL("DELETE FROM " + tMatricula +
                     "WHERE id_matricula = " + dato.getIdMatricula()
             );
             database.close();
@@ -63,10 +65,11 @@ public class MatriculaController extends dJuniorsUPN {
     }
 
     public ArrayList<Matricula> MostrarMatricula(){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new MatriculaController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<Matricula> datos = new ArrayList<>();
+
         Cursor act = null;
 
         act = database.rawQuery("SELECT * FROM " + tMatricula, null);
@@ -86,13 +89,13 @@ public class MatriculaController extends dJuniorsUPN {
     }
 
     public ArrayList<Matricula> BuscarMatricula(Matricula dato){
-        dJuniorsUPN x = new DocenteController(context);
+        dJuniorsUPN x = new MatriculaController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<Matricula> datos = new ArrayList<>();
         Cursor act = null;
 
-        act = database.rawQuery("SELECT * FROM " + tMatricula + "WHERE id_docente = " + dato.getIdMatricula(), null);
+        act = database.rawQuery("SELECT * FROM " + tMatricula + "WHERE id_matricula = " + dato.getIdMatricula(), null);
 
         if (act.moveToFirst()){
             do{
@@ -106,5 +109,29 @@ public class MatriculaController extends dJuniorsUPN {
         }
         act.close();
         return datos;
+    }
+
+    public boolean EstaMatriculado(Alumno dato1, Seccion dato2) {
+        dJuniorsUPN x = new MatriculaController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        ArrayList<Matricula> datos = new ArrayList<>();
+        Cursor act = null;
+        boolean resultado = false;
+
+        act = database.rawQuery("SELECT COUNT(*) FROM " + tMatricula + "WHERE id_alumno =" + dato1.getIdAlumno() + " AND id_seccion =" + dato2.getIdSeccion(), null);
+        // SELECT COUNT(*) FROM Matricula WHERE id_alumno = ? AND id_seccion = ?
+
+        if (act.moveToFirst()) {
+            int cantidad = act.getInt(0);
+            if (cantidad > 0) {
+                resultado = true;
+            }
+        }
+
+        act.close();
+        database.close();
+        return resultado;
+
     }
 }

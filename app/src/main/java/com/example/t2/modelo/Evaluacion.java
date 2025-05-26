@@ -12,7 +12,7 @@ public class Evaluacion {
 
     }
 
-    public Evaluacion( int idEvaluacion, int idMatricula, int idCurso, int bimestre, int nota, String fechaEvaluacion){
+    public Evaluacion( int idEvaluacion, int idMatricula, int idCurso, int bimestre, Double nota, String fechaEvaluacion){
         this.idEvaluacion = idEvaluacion;
         this.idMatricula = idMatricula;
         this.idCurso = idCurso;
