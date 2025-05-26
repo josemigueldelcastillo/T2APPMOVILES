@@ -113,7 +113,7 @@ public class EvaluacionController extends dJuniorsUPN {
         return datos;
     }
 
-    public ArrayList<Evaluacion> ListarNotasPorAlumno(Alumno dato) {
+    public ArrayList<Evaluacion> ListarNotasPorAlumno(Alumno dato, int anioLectivo) {
         dJuniorsUPN x = new EvaluacionController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
@@ -123,7 +123,8 @@ public class EvaluacionController extends dJuniorsUPN {
         act = database.rawQuery("SELECT e.id_evaluacion, e.id_matricula, e.tipo, e.nota " +
                 "FROM " + tEvaluacion + " e " +
                 "JOIN " + tMatricula + " m ON e.id_matricula = m.id_matricula " +
-                "WHERE m.id_alumno = " + dato.getIdAlumno(), null);
+                "WHERE m.id_alumno = " + dato.getIdAlumno() +
+                " AND m.anio_lectivo = " + anioLectivo, null);
 
         if (act.moveToFirst()) {
             do {
