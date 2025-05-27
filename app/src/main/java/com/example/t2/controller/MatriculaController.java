@@ -145,10 +145,10 @@ public class MatriculaController extends dJuniorsUPN {
         Cursor cursor = null;
 
         String query = "SELECT m.id_matricula, c.nombre_curso, AVG(e.nota) AS promedio, m.anio_lectivo " +
-                "FROM tMatricula m " +
-                "JOIN tAlumno a ON m.id_alumno = a.id_alumno " +
-                "JOIN tEvaluacion e ON m.id_matricula = e.id_matricula " +
-                "JOIN tCurso c ON e.id_curso = c.id_curso " +
+                "FROM Matricula m " +
+                "JOIN Alumno a ON m.id_alumno = a.id_alumno " +
+                "JOIN Evaluacion e ON m.id_matricula = e.id_matricula " +
+                "JOIN Curso c ON e.id_curso = c.id_curso " +
                 "WHERE a.dni = ? AND m.anio_lectivo BETWEEN ? AND ? " +
                 "GROUP BY m.id_matricula, e.id_curso";
 

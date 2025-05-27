@@ -140,6 +140,7 @@ public class regestudiantes extends AppCompatActivity {
     }
 
     private void buscarAlumnoPorDNI() {
+        cargarListaEstudiantes();
         String codi = busc.getText().toString().trim();
 
         // Validación 1: Campo vacío
@@ -162,6 +163,7 @@ public class regestudiantes extends AppCompatActivity {
             Toast.makeText(regestudiantes.this, "No se encontró ningún alumno con ese DNI.", Toast.LENGTH_SHORT).show();
             listaEstudiantes.setAdapter(null); // Limpiar lista
             return;
+
         }
 
         // Mostrar resultados en el ListView
@@ -178,6 +180,14 @@ public class regestudiantes extends AppCompatActivity {
 
                 nombreApellido.setText(alumno.getNombre() + " " + alumno.getApellido());
                 datosExtra.setText(" | DNI: " + alumno.getDni() + "\n | Nacionalidad: " + alumno.getNacionalidad() + "\n | Nivel: " + alumno.getNivel());
+                limpiarCampos();
+                nom.setText(alumno.getNombre());
+                ape.setText(alumno.getApellido());
+                numdoc.setText(alumno.getDni());
+                String nivelGuardado = alumno.getNivel();
+                int posicion = ((ArrayAdapter<String>)niv.getAdapter()).getPosition(nivelGuardado);
+                niv.setSelection(posicion);
+                nacio.setText(alumno.getNacionalidad());
 
                 return itemView;
             }

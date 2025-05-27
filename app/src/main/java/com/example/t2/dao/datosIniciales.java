@@ -26,7 +26,7 @@ public class datosIniciales extends dJuniorsUPN{
         db.execSQL("INSERT INTO Alumno (dni, nombre, apellido, nacionalidad, nivel) VALUES " +
                 "('11223344', 'Carlos', 'Ramírez', 'Peruana', 'Secundaria')," +
                 "('14586230', 'Tapia', 'Apaza', 'Extrangero', 'Primaria')," +
-                "('**', 'Ana', 'López', 'Peruana', 'Secundaria')");
+                "('23141411', 'Ana', 'López', 'Peruana', 'Secundaria')");
 
         // Curso
         db.execSQL("-- Cursos para Primaria\n" +
@@ -48,16 +48,16 @@ public class datosIniciales extends dJuniorsUPN{
 
         // Asignación de Cursos
         db.execSQL("INSERT INTO AsignacionCurso(id_curso, id_docente_principal, id_docente_auxiliar, id_seccion, anio_lectivo) VALUES\n" +
-                "(1, 1, 3, 1, 2023),\n" +
-                "(2, 1, 3, 1, 2023),\n" +
-                "(3, 2, 3, 1, 2023),\n" +
-                "(4, 2, 3, 1, 2023),\n" +
-                "(5, 1, 3, 1, 2023),\n" +
-                "(6, 1, 3, 2, 2024),\n" +
-                "(7, 2, 3, 2, 2024),\n" +
-                "(8, 2, 3, 2, 2024),\n" +
-                "(9, 1, 3, 2, 2024),\n" +
-                "(10, 1, 3, 2, 2024);");
+                "(1, 1, 2, 1, 2023),\n" +
+                "(2, 1, 2, 1, 2023),\n" +
+                "(3, 2, 1, 1, 2023),\n" +
+                "(4, 2, 1, 1, 2023),\n" +
+                "(5, 1, 2, 1, 2023),\n" +
+                "(6, 1, 2, 2, 2024),\n" +
+                "(7, 2, 1, 2, 2024),\n" +
+                "(8, 2, 1, 2, 2024),\n" +
+                "(9, 1, 2, 2, 2024),\n" +
+                "(10, 1, 2, 2, 2024);");
 
         // Evaluaciones
         db.execSQL("INSERT INTO Evaluacion(id_matricula, id_curso, bimestre, nota, fecha_evaluacion) VALUES\n" +

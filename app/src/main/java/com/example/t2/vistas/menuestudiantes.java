@@ -40,8 +40,8 @@ public class menuestudiantes extends AppCompatActivity {
             }
         });
 
-
-
+        btnHistoAca.setOnClickListener(v -> abrirHistorialAcademico());
+        btnConLibNotas.setOnClickListener(v -> abrirLibroNotas());
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,12 +52,12 @@ public class menuestudiantes extends AppCompatActivity {
 
 
     }
-    public void abrirHistorialAcademico(View view) {
+    private void abrirHistorialAcademico() {
         Intent intent = new Intent(this, hisacademico.class);
         startActivity(intent);
     }
 
-    public void abrirLibroNotas(View view) {
+    private void abrirLibroNotas() {
         Intent intent = new Intent(this, libnotas.class);
         startActivity(intent);
     }
