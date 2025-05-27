@@ -25,18 +25,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.t2.R;
 import com.example.t2.controller.AlumnoController;
 import com.example.t2.modelo.Alumno;
+import com.example.t2.negocio.nAlumno;
 
 import java.util.ArrayList;
 
 public class regestudiantes extends AppCompatActivity {
 
     private Button btnVolver, btnAgregar, btnEliminar, btnEditar, btnBuscar, btnLimpiar;
-    private EditText nom, ape, numdoc, nacio;
+    private EditText nom, ape, numdoc, nacio, busc;
     private Spinner niv;
     private ListView listaEstudiantes;
 
-    private Alumno dato = new Alumno();
-    private AlumnoController act = new AlumnoController(this);
+    private nAlumno gestorAlumnos;  // Usamos la clase de negocio
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,98 +54,118 @@ public class regestudiantes extends AppCompatActivity {
         numdoc = findViewById(R.id.txt_dni_ce_estudiante);
         niv = findViewById(R.id.spn_nivel_estudiante);
         nacio = findViewById(R.id.txt_nacionalidad);
-
+        busc = findViewById(R.id.text_buscar_estudiante);
         listaEstudiantes = findViewById(R.id.lv_estudiantes);
+        btnVolver = findViewById(R.id.btn_regresar_estudiante);
+        btnAgregar = findViewById(R.id.btn_agregar_estudiante);
+        btnBuscar = findViewById(R.id.btn_buscar_estu);
+
+        gestorAlumnos = new nAlumno(this);  // Inicializamos negocio
 
         String[] niveles = {"Primaria", "Secundaria"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_spinner_item,
-                niveles
-        );
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, niveles);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         niv.setAdapter(adapter);
 
         numdoc.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                nacio.setText(s.length() > 8 ? "Extranjero" : "Peruano");
             }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() > 8) {
-                    nacio.setText("Extranjero");
-                } else {
-                    nacio.setText("Peruano");
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        btnVolver = findViewById(R.id.btn_regresar_estudiante);
-
-        btnVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
+            @Override public void afterTextChanged(Editable s) {}
         });
 
-        btnAgregar = findViewById(R.id.btn_agregar_estudiante);
+        btnVolver.setOnClickListener(v -> finish());
 
-        btnAgregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    String nombre = nom.getText().toString();
-                    String apellido = ape.getText().toString();
-                    String dnice = numdoc.getText().toString().trim();
-                    String nacionalidad = nacio.getText().toString().trim();
-                    String nivel = niv.getSelectedItem().toString();
+        btnAgregar.setOnClickListener(v -> agregarAlumno());
 
-                    // Validaciones simples
-                    if (nombre.isEmpty() || apellido.isEmpty() || dnice.isEmpty() || nacionalidad.isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    if (dnice.length() < 8) {
-                        Toast.makeText(getApplicationContext(), "El número de documento debe tener al menos 8 caracteres", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-
-                    // Crear objeto Alumno e insertar
-                    Alumno dato = new Alumno(dnice, nombre, apellido,  nacionalidad, nivel);
-                    act.InsertarAlumno(dato);
-
-                    Toast.makeText(getApplicationContext(), "Alumno agregado correctamente", Toast.LENGTH_SHORT).show();
-
-                    // Opcional: limpiar campos
-                    nom.setText("");
-                    ape.setText("");
-                    numdoc.setText("");
-                    nacio.setText("");
-                    niv.setSelection(0); // Reinicia el spinner
-
-                } catch (Exception e) {
-                    Toast.makeText(getApplicationContext(), "Error al insertar alumno: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-                } finally {
-                    cargarListaEstudiantes();
-                }
-
-            }
-        });
+        btnBuscar.setOnClickListener(v -> buscarAlumnoPorDNI());
+        cargarListaEstudiantes();
     }
+    private void agregarAlumno() {
+        try {
+            String nombre = nom.getText().toString().trim();
+            String apellido = ape.getText().toString().trim();
+            String dnice = numdoc.getText().toString().trim();
+            String nacionalidad = nacio.getText().toString().trim();
+            String nivel = niv.getSelectedItem().toString();
 
+            Alumno nuevoAlumno = new Alumno(dnice, nombre, apellido, nacionalidad, nivel);
+            boolean insertado = gestorAlumnos.Insertar(nuevoAlumno);
+
+            if (insertado) {
+                Toast.makeText(this, "Alumno agregado correctamente", Toast.LENGTH_SHORT).show();
+                limpiarCampos();
+                cargarListaEstudiantes();
+            } else {
+                Toast.makeText(this, "Error: Verifica que los datos estén correctos o el alumno ya exista", Toast.LENGTH_LONG).show();
+            }
+
+        } catch (Exception e) {
+            Toast.makeText(this, "Error al insertar: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
+    private void limpiarCampos() {
+        nom.setText("");
+        ape.setText("");
+        numdoc.setText("");
+        nacio.setText("");
+        niv.setSelection(0);
+    }
     private void cargarListaEstudiantes() {
-        ArrayList<Alumno> lista = act.MostrarAlumno();
+        ArrayList<Alumno> lista = gestorAlumnos.Listar();
 
         ArrayAdapter<Alumno> adaptador = new ArrayAdapter<Alumno>(this, R.layout.item_alumno, lista) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View itemView = LayoutInflater.from(getContext())
+                        .inflate(R.layout.item_alumno, parent, false);
+
+                Alumno alumno = getItem(position);
+
+                TextView nombreApellido = itemView.findViewById(R.id.txtNombreApellido);
+                TextView datosExtra = itemView.findViewById(R.id.txtDatosExtra);
+
+                nombreApellido.setText(alumno.getNombre() + " " + alumno.getApellido());
+                datosExtra.setText("| DNI: " + alumno.getDni() +
+                        "\n| Nacionalidad: " + alumno.getNacionalidad() +
+                        "\n| Nivel: " + alumno.getNivel());
+
+                return itemView;
+            }
+        };
+
+        listaEstudiantes.setAdapter(adaptador);
+    }
+
+    private void buscarAlumnoPorDNI() {
+        String codi = busc.getText().toString().trim();
+
+        // Validación 1: Campo vacío
+        if (codi.isEmpty()) {
+            Toast.makeText(regestudiantes.this, "Por favor, ingrese un DNI para buscar.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validación 2: Longitud del DNI y que sea numérico
+        if (codi.length() != 8 || !codi.matches("\\d+")) {
+            Toast.makeText(regestudiantes.this, "El DNI debe tener 8 dígitos numéricos.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Ejecutar búsqueda
+        ArrayList<Alumno> resul = gestorAlumnos.BuscarDNI(codi);
+
+        // Validación 3: No se encontró ningún alumno
+        if (resul.isEmpty()) {
+            Toast.makeText(regestudiantes.this, "No se encontró ningún alumno con ese DNI.", Toast.LENGTH_SHORT).show();
+            listaEstudiantes.setAdapter(null); // Limpiar lista
+            return;
+        }
+
+        // Mostrar resultados en el ListView
+        ArrayAdapter<Alumno> adaptador = new ArrayAdapter<Alumno>(regestudiantes.this, R.layout.item_alumno, resul) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -157,7 +177,7 @@ public class regestudiantes extends AppCompatActivity {
                 TextView datosExtra = itemView.findViewById(R.id.txtDatosExtra);
 
                 nombreApellido.setText(alumno.getNombre() + " " + alumno.getApellido());
-                datosExtra.setText("| DNI: " + alumno.getDni() + "\n | Nacionalidad: " + alumno.getNacionalidad() + "\n | Nivel: " + alumno.getNivel());
+                datosExtra.setText(" | DNI: " + alumno.getDni() + "\n | Nacionalidad: " + alumno.getNacionalidad() + "\n | Nivel: " + alumno.getNivel());
 
                 return itemView;
             }

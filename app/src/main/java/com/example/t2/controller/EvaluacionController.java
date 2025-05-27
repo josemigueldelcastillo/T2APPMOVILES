@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.example.t2.dao.dJuniorsUPN;
 import com.example.t2.modelo.Alumno;
 import com.example.t2.modelo.Evaluacion;
+import com.example.t2.modelo.reportes.LibretaNotas;
 
 import java.util.ArrayList;
 
@@ -113,35 +114,39 @@ public class EvaluacionController extends dJuniorsUPN {
         return datos;
     }
 
-    public ArrayList<Evaluacion> ListarNotasPorAlumno(Alumno dato, int anioLectivo) {
-        dJuniorsUPN x = new EvaluacionController(context);
-        SQLiteDatabase database = x.getReadableDatabase();
+    public ArrayList<LibretaNotas> libretaNotas(String dniAlumno, int anioLectivo, int bimestre) {
+        dJuniorsUPN dbHelper = new EvaluacionController(context);  // Cambio clave
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        ArrayList<Evaluacion> datos = new ArrayList<>();
-        Cursor act = null;
+        ArrayList<LibretaNotas> datos = new ArrayList<>();
 
-        act = database.rawQuery("SELECT e.id_evaluacion, e.id_matricula, e.tipo, e.nota " +
+        String query = "SELECT c.nombre_curso, e.bimestre, e.nota, e.fecha_evaluacion " +
                 "FROM " + tEvaluacion + " e " +
+                "JOIN " + tCurso + " c ON e.id_curso = c.id_curso " +
                 "JOIN " + tMatricula + " m ON e.id_matricula = m.id_matricula " +
-                "WHERE m.id_alumno = " + dato.getIdAlumno() +
-                " AND m.anio_lectivo = " + anioLectivo, null);
+                "JOIN " + tAlumno + " a ON m.id_alumno = a.id_alumno " +
+                "WHERE a.dni = ? AND m.anio_lectivo = ? AND e.bimestre = ?";
 
-        if (act.moveToFirst()) {
+
+        Cursor cursor = db.rawQuery(query, new String[] {
+                dniAlumno,
+                String.valueOf(anioLectivo),
+                String.valueOf(bimestre)
+        });
+
+        if (cursor.moveToFirst()) {
             do {
-                datos.add(new Evaluacion(
-                        Integer.parseInt(act.getString(0)), // id_evaluacion
-                        Integer.parseInt(act.getString(1)),
-                        Integer.parseInt(act.getString(2)),
-                        Integer.parseInt(act.getString(3)),// id_matricula
-                        Double.parseDouble(act.getString(4)),                   // tipo
-                       act.getString(5)  // Fecha
-                ));
-            } while (act.moveToNext());
+                LibretaNotas nota = new LibretaNotas();
+                nota.setNombreCurso(cursor.getString(0));
+                nota.setBimestre(cursor.getInt(1));
+                nota.setNota(cursor.getDouble(2));
+                nota.setFechaEvaluacion(cursor.getString(3));
+                datos.add(nota);
+            } while (cursor.moveToNext());
         }
 
-        act.close();
-        database.close();
-
+        cursor.close();
+        db.close();  // Siempre cierra la conexión
         return datos;
     }
 }

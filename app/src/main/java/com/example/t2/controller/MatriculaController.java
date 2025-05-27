@@ -11,6 +11,7 @@ import com.example.t2.modelo.Alumno;
 import com.example.t2.modelo.Evaluacion;
 import com.example.t2.modelo.Matricula;
 import com.example.t2.modelo.Seccion;
+import com.example.t2.modelo.reportes.Historial;
 
 import java.util.ArrayList;
 
@@ -136,18 +137,18 @@ public class MatriculaController extends dJuniorsUPN {
 
     }
 
-    public ArrayList<Evaluacion> historialAcademico(String dniAlumno, int anioInicio, int anioFin) {
+    public ArrayList<Historial> historialAcademico(String dniAlumno, int anioInicio, int anioFin) {
         dJuniorsUPN x = new MatriculaController(context);
         SQLiteDatabase db = x.getReadableDatabase();
 
-        ArrayList<Evaluacion> datos = new ArrayList<>();
+        ArrayList<Historial> datos = new ArrayList<>();
         Cursor cursor = null;
 
         String query = "SELECT m.id_matricula, c.nombre_curso, AVG(e.nota) AS promedio, m.anio_lectivo " +
-                "FROM Matricula m " +
-                "JOIN Alumno a ON m.id_alumno = a.id_alumno " +
-                "JOIN Evaluacion e ON m.id_matricula = e.id_matricula " +
-                "JOIN Curso c ON e.id_curso = c.id_curso " +
+                "FROM tMatricula m " +
+                "JOIN tAlumno a ON m.id_alumno = a.id_alumno " +
+                "JOIN tEvaluacion e ON m.id_matricula = e.id_matricula " +
+                "JOIN tCurso c ON e.id_curso = c.id_curso " +
                 "WHERE a.dni = ? AND m.anio_lectivo BETWEEN ? AND ? " +
                 "GROUP BY m.id_matricula, e.id_curso";
 
@@ -159,51 +160,18 @@ public class MatriculaController extends dJuniorsUPN {
 
         if (cursor.moveToFirst()) {
             do {
-                Evaluacion eval = new Evaluacion();
-                eval.setIdMatricula(cursor.getInt(0));
-                eval.setNombreCurso(cursor.getString(1));
-                eval.setNota(cursor.getDouble(2)); // promedio
-                eval.setAnioLectivo(cursor.getInt(3));
-                datos.add(eval);
+                Historial h = new Historial();
+                h.setIdMatricula(cursor.getInt(0));
+                h.setNombreCurso(cursor.getString(1));
+                h.setPromedio(cursor.isNull(2) ? 0.0 : cursor.getDouble(2));
+                h.setAnioLectivo(cursor.getInt(3));
+                datos.add(h);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
         return datos;
     }
-    public ArrayList<Evaluacion> historialAcademico(String dniAlumno, int anioInicio, int anioFin) {
-        dJuniorsUPN x = new MatriculaController(context);
-        SQLiteDatabase db = x.getReadableDatabase();
 
-        ArrayList<Evaluacion> datos = new ArrayList<>();
-        Cursor cursor = null;
 
-        String query = "SELECT m.id_matricula, c.nombre_curso, AVG(e.nota) AS promedio, m.anio_lectivo " +
-                "FROM Matricula m " +
-                "JOIN Alumno a ON m.id_alumno = a.id_alumno " +
-                "JOIN Evaluacion e ON m.id_matricula = e.id_matricula " +
-                "JOIN Curso c ON e.id_curso = c.id_curso " +
-                "WHERE a.dni = ? AND m.anio_lectivo BETWEEN ? AND ? " +
-                "GROUP BY m.id_matricula, e.id_curso";
-
-        cursor = db.rawQuery(query, new String[] {
-                dniAlumno,
-                String.valueOf(anioInicio),
-                String.valueOf(anioFin)
-        });
-
-        if (cursor.moveToFirst()) {
-            do {
-                Evaluacion eval = new Evaluacion();
-                eval.setIdMatricula(cursor.getInt(0));
-                eval.setNombreCurso(cursor.getString(1));
-                eval.setNota(cursor.getDouble(2)); // promedio
-                eval.setAnioLectivo(cursor.getInt(3));
-                datos.add(eval);
-            } while (cursor.moveToNext());
-        }
-
-        cursor.close();
-        return datos;
-    }
 }
