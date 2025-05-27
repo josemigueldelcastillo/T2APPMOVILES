@@ -87,14 +87,14 @@ public class AlumnoController extends dJuniorsUPN {
         return datos;
     }
 
-    public ArrayList<Alumno> BuscarAlumno(String dnice){
+    public ArrayList<Alumno> BuscarAlumno(Alumno dato){
         dJuniorsUPN x = new AlumnoController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<Alumno> datos = new ArrayList<>();
         Cursor act = null;
 
-        act = database.rawQuery("SELECT * FROM " + tAlumno + " WHERE id_alumno = '" + dnice + "'", null);
+        act = database.rawQuery("SELECT * FROM " + tAlumno + "WHERE id_alumno = " + dato.getIdAlumno(), null);
 
         if (act.moveToFirst()){
             do{

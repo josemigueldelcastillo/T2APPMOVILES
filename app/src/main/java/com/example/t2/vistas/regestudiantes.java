@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class regestudiantes extends AppCompatActivity {
 
     private Button btnVolver, btnAgregar, btnEliminar, btnEditar, btnBuscar, btnLimpiar;
-    private EditText nom, ape, numdoc, nacio, busc;
+    private EditText nom, ape, numdoc, nacio;
     private Spinner niv;
     private ListView listaEstudiantes;
 
@@ -54,9 +54,9 @@ public class regestudiantes extends AppCompatActivity {
         numdoc = findViewById(R.id.txt_dni_ce_estudiante);
         niv = findViewById(R.id.spn_nivel_estudiante);
         nacio = findViewById(R.id.txt_nacionalidad);
-        busc = findViewById(R.id.text_buscar_estudiante);
+
         listaEstudiantes = findViewById(R.id.lv_estudiantes);
-        cargarListaEstudiantes();
+
         String[] niveles = {"Primaria", "Secundaria"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
@@ -140,66 +140,6 @@ public class regestudiantes extends AppCompatActivity {
 
             }
         });
-
-
-        btnEliminar = findViewById(R.id.btn_eliminar_estudiante);
-        btnEliminar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btnBuscar = findViewById(R.id.btn_buscar_estu);
-        btnBuscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String codi = busc.getText().toString().trim();
-
-                // Validación 1: Campo vacío
-                if (codi.isEmpty()) {
-                    Toast.makeText(regestudiantes.this, "Por favor, ingrese un DNI para buscar.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // Validación 2: Longitud del DNI
-                if (codi.length() != 8 || !codi.matches("\\d+")) {
-                    Toast.makeText(regestudiantes.this, "El DNI debe tener 8 dígitos numéricos.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // Ejecutar búsqueda
-                ArrayList<Alumno> resul = act.BuscarAlumno(codi);
-
-                // Validación 3: No se encontró ningún alumno
-                if (resul.isEmpty()) {
-                    Toast.makeText(regestudiantes.this, "No se encontró ningún alumno con ese DNI.", Toast.LENGTH_SHORT).show();
-                    listaEstudiantes.setAdapter(null); // Limpiar lista
-                    return;
-                }
-
-                // Adaptador personalizado
-                ArrayAdapter<Alumno> adaptador = new ArrayAdapter<Alumno>(regestudiantes.this, R.layout.item_alumno, resul) {
-                    @Override
-                    public View getView(int position, View convertView, ViewGroup parent) {
-                        LayoutInflater inflater = LayoutInflater.from(getContext());
-                        View itemView = convertView != null ? convertView : inflater.inflate(R.layout.item_alumno, parent, false);
-
-                        Alumno alumno = getItem(position);
-
-                        TextView nombreApellido = itemView.findViewById(R.id.txtNombreApellido);
-                        TextView datosExtra = itemView.findViewById(R.id.txtDatosExtra);
-
-                        nombreApellido.setText(alumno.getNombre() + " " + alumno.getApellido());
-                        datosExtra.setText(" | DNI: " + alumno.getDni() + "\n | Nacionalidad: " + alumno.getNacionalidad() + "\n | Nivel: " + alumno.getNivel());
-
-                        return itemView;
-                    }
-                };
-
-                listaEstudiantes.setAdapter(adaptador);
-            }
-        });
     }
 
     private void cargarListaEstudiantes() {
@@ -217,7 +157,7 @@ public class regestudiantes extends AppCompatActivity {
                 TextView datosExtra = itemView.findViewById(R.id.txtDatosExtra);
 
                 nombreApellido.setText(alumno.getNombre() + " " + alumno.getApellido());
-                datosExtra.setText(" | DNI: " + alumno.getDni() + "\n | Nacionalidad: " + alumno.getNacionalidad() + "\n | Nivel: " + alumno.getNivel());
+                datosExtra.setText("| DNI: " + alumno.getDni() + "\n | Nacionalidad: " + alumno.getNacionalidad() + "\n | Nivel: " + alumno.getNivel());
 
                 return itemView;
             }

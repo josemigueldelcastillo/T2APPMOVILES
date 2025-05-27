@@ -23,12 +23,11 @@ public class DocenteController extends dJuniorsUPN{
         SQLiteDatabase database = x.getWritableDatabase();
 
         if (database != null){
-            database.execSQL("INSERT INTO " + tDocente + " VALUES( "+
-                    dato.getNombre() + ", " +
-                    dato.getApellido() + ", " +
-                    dato.getDni() + ", " +
-                    dato.getNacionalidad() +
-                     ")"
+            database.execSQL("INSERT INTO " + tDocente + "(dni, nombre, apellido, nacionalidad) VALUES( "+
+                    "'" + dato.getDni() + "', " +
+                    "'" + dato.getNombre() + "', " +
+                    "'" + dato.getApellido() + "', " +
+                    "'" + dato.getNacionalidad() +  "')"
             );
             database.close();
         }

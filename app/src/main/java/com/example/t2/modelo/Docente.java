@@ -11,7 +11,12 @@ public class Docente {
     public Docente(){
 
     }
-
+    public Docente ( String dni, String nombre, String apellido, String nacionalidad){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.nacionalidad = nacionalidad;
+    }
     public Docente ( int idDocente, String dni, String nombre, String apellido, String nacionalidad){
         this.idDocente = idDocente;
         this.nombre = nombre;
