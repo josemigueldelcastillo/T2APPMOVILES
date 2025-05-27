@@ -190,8 +190,10 @@ public class regestudiantes extends AppCompatActivity {
                 nom.setText(alumno.getNombre());
                 ape.setText(alumno.getApellido());
                 numdoc.setText(alumno.getDni());
-                //Aqui quiero
-
+                String nivelGuardado = alumno.getNivel(); // Por ejemplo: "Secundaria"
+                int posicion = ((ArrayAdapter<String>)niv.getAdapter()).getPosition(nivelGuardado);
+                niv.setSelection(posicion);
+                nacio.setText(alumno.getNacionalidad());
                 return itemView;
             }
         };
