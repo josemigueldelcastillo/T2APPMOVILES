@@ -23,7 +23,7 @@ public class AlumnoController extends dJuniorsUPN {
         SQLiteDatabase database = x.getWritableDatabase();
 
         if (database != null){
-            database.execSQL("INSERT INTO " + tAlumno + "(dni, nombre, apellido, nacionalidad, nivel) VALUES( "+
+            database.execSQL("INSERT INTO " + tAlumno + " (dni, nombre, apellido, nacionalidad, nivel) VALUES( "+
                     "'" + dato.getDni() + "', " +
                     "'" + dato.getNombre() + "', " +
                     "'" + dato.getApellido() + "', " +
@@ -87,14 +87,14 @@ public class AlumnoController extends dJuniorsUPN {
         return datos;
     }
 
-    public ArrayList<Alumno> BuscarAlumno(Alumno dato){
+    public ArrayList<Alumno> BuscarAlumno(String dato){
         dJuniorsUPN x = new AlumnoController(context);
         SQLiteDatabase database = x.getReadableDatabase();
 
         ArrayList<Alumno> datos = new ArrayList<>();
         Cursor act = null;
 
-        act = database.rawQuery("SELECT * FROM " + tAlumno + "WHERE id_alumno = " + dato.getIdAlumno(), null);
+        act = database.rawQuery("SELECT * FROM " + tAlumno + " WHERE dni = " + dato, null);
 
         if (act.moveToFirst()){
             do{
