@@ -1,7 +1,6 @@
 package com.example.t2.vistas;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.t2.R;
-import com.example.t2.dao.datosIniciales;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,10 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        datosIniciales dbHelper = new datosIniciales(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase(); // Esto activará onCreate() si la BD no existe
-        db.close();
 
     }
 }

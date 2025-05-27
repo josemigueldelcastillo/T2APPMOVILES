@@ -57,6 +57,8 @@ public class regdocentes extends AppCompatActivity {
 
         btnVolver = findViewById(R.id.btn_regresar_docentes);
 
+        cargarListaDocente();
+
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

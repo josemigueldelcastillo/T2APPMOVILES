@@ -37,4 +37,7 @@ public class Curso {
 
     public Curso setNivel(String nivel) { this.nivel = nivel; return this; }
 
+    public String getNivel() {
+        return nivel;
+    }
 }

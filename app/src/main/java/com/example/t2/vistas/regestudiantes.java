@@ -60,6 +60,8 @@ public class regestudiantes extends AppCompatActivity {
         btnAgregar = findViewById(R.id.btn_agregar_estudiante);
         btnBuscar = findViewById(R.id.btn_buscar_estu);
 
+        cargarListaEstudiantes();
+
         gestorAlumnos = new nAlumno(this);  // Inicializamos negocio
 
         String[] niveles = {"Primaria", "Secundaria"};
@@ -80,7 +82,7 @@ public class regestudiantes extends AppCompatActivity {
         btnAgregar.setOnClickListener(v -> agregarAlumno());
 
         btnBuscar.setOnClickListener(v -> buscarAlumnoPorDNI());
-        cargarListaEstudiantes();
+
     }
     private void agregarAlumno() {
         try {
